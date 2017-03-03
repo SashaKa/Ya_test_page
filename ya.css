@@ -1,0 +1,23 @@
+body {
+    background-color: #eee;
+}
+.container {
+    max-width: 800px;
+    min-width: 500px;
+    background-color: #fff;
+}
+@media screen and (max-width:800px) {
+    .container {
+        width: 100%;
+    }
+}
+@media screen and (max-width:500px) {
+    .container {
+        width: 500px;
+    }
+}
+header {
+    width: 100%;
+    height: 50px;
+    border-bottom: 1px solid #999;
+}
