@@ -14,8 +14,13 @@ body {
     min-width: 500px;
     background-color: #fff;
     margin: 0 auto;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: column;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
     height: 100%;
 }
 @media screen and (max-width:800px) {
@@ -30,28 +35,84 @@ body {
     }
 }
 header, footer {
-    flex: 0 0 50px;
+    -webkit-box-flex: 0;
+        -ms-flex: 0 0 50px;
+            flex: 0 0 50px;
 }
 header {
     border-bottom: 1px solid #999;
 }
 .container > .main {
-    align-self: flex-start;
+    -ms-flex-item-align: start;
+        align-self: flex-start;
 }
 .container > .right {
     width: 300px;
     height: 100%;
-    align-self: flex-end;
+    -ms-flex-item-align: end;
+        align-self: flex-end;
     border-left:1px solid #ccc;
     box-shadow: -15px 0 #333;
 }
+
+footer {
+    margin-top: auto;
+    border-top: 1px solid #999;
+    bottom: 0;
+    left: 0;
+    margin-left: 0;
+    position: fixed;
+    z-index: 1000;
+
+}
+
+@media screen and (min-width: 701px) {
+    .right{
+        display: block;
+        -webkit-animation-name:  appearance;
+                animation-name:  appearance;
+        -webkit-animation-duration: 250ms;
+                animation-duration: 250ms;
+    }
+}
 @media screen and (max-width: 700px) {
-    .right {
+    .right{
+        display: none;
+        -webkit-animation-name:  dispearance;
+                animation-name:  dispearance;
+        -webkit-animation-duration: 250ms;
+                animation-duration: 250ms;
+    }
+}
+@-webkit-keyframes appearance {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+@keyframes appearance {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+@-webkit-keyframes dispearance {
+    from {
+        opacity: 1;
+    }
+    to {
         opacity: 0;
     }
 }
-footer {
-  margin-top: auto;
-  border-top: 1px solid #999;
-
+@keyframes dispearance {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
 }
