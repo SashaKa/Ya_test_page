@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="ya.css">
@@ -8,11 +8,42 @@
 <body>
     <div class="container">
         <header>
+            <button class="login-btn" type="button" title="Войти">Войти</button>
         </header>
         <div class="main"></div>
         <div class="right"></div>
         <footer>
         </footer>
+        <div class="modal-overlay"></div>
     </div>
+    <div class="modal-content">
+        <button class="modal-content-close" type="button" title="Закрыть"></button>
+    </div>
+    <script type="text/javascript">
+        var link = document.querySelector(".login-btn");
+        var popup = document.querySelector(".modal-content");
+        var close = document.querySelector(".modal-content-close");
+        var closeOverlay = document.querySelector(".modal-overlay");
+        var overlay = document.querySelector(".modal-overlay");
+        link.addEventListener("click", function(event) {
+            event.preventDefault();
+            popup.classList.add("modal-content-show");
+            overlay.classList.add("modal-overlay-show");
+        });
+        close.addEventListener('click', function(event) {
+            event.preventDefault();
+            popup.classList.remove("modal-content-show");
+            closeOverlay.classList.remove("modal-overlay-show");
+        });
+        overlay.addEventListener("click", function(event) {
+            event.preventDefault();
+            overlay.classList.remove("modal-content-show");
+        });
+        closeOverlay.addEventListener("click", function(event) {
+            event.preventDefault();
+            closeOverlay.classList.remove("modal-overlay-show");
+            popup.classList.remove("modal-content-show");
+        });
+    </script>
 </body>
 </html>
